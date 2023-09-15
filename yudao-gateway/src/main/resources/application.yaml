@@ -7,6 +7,18 @@ spring:
     gateway:
       # 路由配置项，对应 RouteDefinition 数组
       routes:
+        - id: code-admin-api # 路由编号
+          uri: grayLb://code-server
+          predicates: # 断言，作为路由的匹配条件，对应RouteDefinition 数组
+            - Path=/admin-api/code/**
+          filters:
+            - RewritePath=/admin-api/code/v3/api-docs, /v3/api-docs # 配置，保证转发到 /v3/api-docs
+        - id: code-app-api # 路由编号
+          uri: grayLb://code-server
+          predicates:
+            - Path=/app-api/code/**
+          filters:
+            - RewritePath=/app-api/code/v3/api-docs, /v3/api-docs
         ## system-server 服务
         - id: system-admin-api # 路由的编号
           uri: grayLb://system-server
@@ -94,3 +106,6 @@ knife4j:
       - name: mp-server
         service-name: mp-server
         url: /admin-api/mp/v3/api-docs
+      - name: code-server
+        service-name: code-server
+        url: /admin-api/code/v3/api-docs

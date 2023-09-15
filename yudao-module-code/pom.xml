@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>yudao</artifactId>
+        <groupId>cn.iocoder.cloud</groupId>
+        <!-- 1. 修改 version 为 ${revision} -->
+        <version>${revision}</version>
+    </parent>
+    <modules>
+        <module>yudao-module-code-api</module>
+        <module>yudao-module-code-biz</module>
+    </modules>
+
+    <!-- <modelVersion>4.0.0</modelVersion> -->
+
+    <!--<groupId>cn.iocoder.yudao</groupId>-->
+    <artifactId>yudao-module-code</artifactId>
+    <!-- 2.新增packaging为pom -->
+    <packaging>pom</packaging>
+
+    <!-- 3.新增name为${project.artifactId} -->
+    <name>${project.artifactId}</name>
+    <!-- 4. 新增 description 为该模块的描述 -->
+    <description>
+        code 模块，主要实现 唯一标识码生成规则管理、标识码生成 等功能。
+    </description>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+</project>
